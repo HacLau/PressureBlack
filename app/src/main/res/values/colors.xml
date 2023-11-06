@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="nav_bg">#071D40</color>
+    <color name="app_bg">#0E1929</color>
+    <color name="nav_text">#4A638A</color>
+
+    <color name="bg_progress">#4E555E</color>
+
+    <color name="start_color">#0066FD</color>
+    <color name="end_color">#0CC68D</color>
+
+    <color name="info_start_color">#323860</color>
+    <color name="info_end_color">#00323860</color>
+
+    <color name="record_item_color">#202546</color>
+    <color name="record_item_time">#7C83B2</color>
+    <color name="record_item_sd">#2E345D</color>
+
+    <color name="record_chart_dash">#3D4576</color>
+
+    <color name="record_item_content">#3D4576</color>
+    <color name="record_new_desc">#9094B2</color>
+    <color name="record_new_time">#8F9AE4</color>
+    <color name="record_new_unit">#747AA0</color>
+    <color name="trans">#00FFFFFF</color>
+
+    <color name="mine_item_bg">#141D33</color>
+
+
+
+
+
+
+    <color name="record_level_0">#0199EB</color>
+    <color name="record_level_1">#56D047</color>
+    <color name="record_level_2">#FED336</color>
+    <color name="record_level_3">#FFB968</color>
+    <color name="record_level_4">#FF8767</color>
+    <color name="record_level_5">#FE5E56</color>
+</resources>

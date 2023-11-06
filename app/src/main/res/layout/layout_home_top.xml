@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/shape_bg_home_top_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/top_image"
+        android:layout_width="149dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="-14dp"
+        android:src="@mipmap/ic_top_image"
+        app:layout_constraintEnd_toEndOf="@id/top_bg"
+        app:layout_constraintTop_toTopOf="@id/top_bg" />
+
+    <ImageView
+        android:id="@+id/top_icon"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:src="@mipmap/ic_heart"
+        app:layout_constraintStart_toStartOf="@id/top_bg"
+        app:layout_constraintTop_toTopOf="@id/top_bg" />
+
+    <TextView
+        android:id="@+id/top_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:ellipsize="end"
+        android:lineHeight="21sp"
+        android:maxLength="24"
+        android:text="@string/home_top_title"
+        android:textColor="@color/white"
+        android:textFontWeight="500"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/top_icon"
+        app:layout_constraintTop_toBottomOf="@id/top_icon" />
+
+    <TextView
+        android:id="@+id/top_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        android:ellipsize="end"
+        android:lineHeight="16sp"
+        android:maxLines="3"
+        android:text="@string/home_top_content"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/top_image"
+        app:layout_constraintStart_toStartOf="@id/top_title"
+        app:layout_constraintTop_toBottomOf="@id/top_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/top_btn"
+        android:layout_width="97dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shape_bg_home_top_btn_18"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:text="@string/home_top_to_record"
+        app:layout_constraintBottom_toBottomOf="@id/top_bg"
+        app:layout_constraintEnd_toEndOf="@id/top_bg" />
+</androidx.constraintlayout.widget.ConstraintLayout>
