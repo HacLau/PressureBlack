@@ -1,6 +1,5 @@
 package com.testbird.pressureblack.base
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.testbird.pressureblack.ui.activity.RecordMoreActivity
-import com.testbird.pressureblack.ui.activity.RecordNewActivity
 import com.testbird.pressureblack.viewmodel.FragmentViewModel
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
@@ -30,10 +27,5 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun initView()
 
-    fun startNewRecordActivity() =
-        startActivity(Intent(requireContext(), RecordNewActivity::class.java))
-
-
-    fun starMoreRecordActivity() = startActivity(Intent(requireContext(), RecordMoreActivity::class.java))
 
 }

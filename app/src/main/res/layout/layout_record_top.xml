@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="224dp"
         android:background="@drawable/shape_bg_record_item_12"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
-            android:id="@+id/record_top_filter_pre"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginEnd="13dp"
+            android:id="@+id/filter_pre"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/shape_bg_record_top_24"
             android:src="@drawable/baseline_keyboard_arrow_left_24"
-            app:layout_constraintTop_toTopOf="@id/record_top_filter_title"
-            app:layout_constraintBottom_toBottomOf="@id/record_top_filter_title"
-            app:layout_constraintEnd_toStartOf="@id/record_top_filter_title"
-            android:background="@drawable/shape_bg_record_top_24"
-            />
-        <TextView
-            android:id="@+id/record_top_filter_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/record_top_vp"
+            app:layout_constraintEnd_toStartOf="@id/record_top_vp"
+            app:layout_constraintTop_toTopOf="@id/record_top_vp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/record_top_vp"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
             android:layout_marginTop="14dp"
-            android:text="@string/record_recent"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/record_top_filter_next"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="13dp"
-            android:src="@drawable/baseline_keyboard_arrow_right_24"
-            app:layout_constraintTop_toTopOf="@id/record_top_filter_title"
-            app:layout_constraintBottom_toBottomOf="@id/record_top_filter_title"
-            app:layout_constraintStart_toEndOf="@id/record_top_filter_title"
+            android:id="@+id/filter_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="@drawable/shape_bg_record_top_24"
-            />
+            android:src="@drawable/baseline_keyboard_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="@id/record_top_vp"
+            app:layout_constraintStart_toEndOf="@id/record_top_vp"
+            app:layout_constraintTop_toTopOf="@id/record_top_vp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_sys"
@@ -50,19 +47,18 @@
             android:layout_height="92dp"
             android:layout_marginTop="22dp"
             android:background="@drawable/shape_bg_record_item_sd_6"
-            app:layout_constraintTop_toBottomOf="@id/record_top_filter_title"
+            app:layout_constraintEnd_toStartOf="@id/cl_dias"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cl_dias">
+            app:layout_constraintTop_toBottomOf="@id/record_top_vp">
 
             <TextView
                 android:id="@+id/sys_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="124"
-                android:textSize="24sp"
                 android:lineHeight="33sp"
                 android:textColor="@color/white"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@id/sys_item"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,22 +72,22 @@
                 android:text="@string/title_systolic"
                 android:textColor="@color/white"
                 android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/sys_unit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sys_number"
-                app:layout_constraintBottom_toTopOf="@id/sys_unit"/>
+                app:layout_constraintTop_toBottomOf="@id/sys_number" />
 
             <TextView
                 android:id="@+id/sys_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/record_unit"
-                android:textSize="12sp"
                 android:textColor="@color/record_item_time"
-                app:layout_constraintTop_toBottomOf="@id/sys_item"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sys_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,18 +96,17 @@
             android:layout_height="92dp"
             android:layout_marginTop="22dp"
             android:background="@drawable/shape_bg_record_item_sd_6"
-            app:layout_constraintTop_toBottomOf="@id/record_top_filter_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cl_sys">
+            app:layout_constraintStart_toEndOf="@id/cl_sys"
+            app:layout_constraintTop_toBottomOf="@id/record_top_vp">
 
             <TextView
                 android:id="@+id/dias_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="124"
-                android:textSize="24sp"
                 android:textColor="@color/white"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@id/dias_item"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,52 +119,53 @@
                 android:text="@string/title_diastolic"
                 android:textColor="@color/white"
                 android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@id/dias_unit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dias_number"
-                app:layout_constraintBottom_toTopOf="@id/dias_unit"/>
+                app:layout_constraintTop_toBottomOf="@id/dias_number" />
+
             <TextView
                 android:id="@+id/dias_unit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/record_unit"
-                android:textSize="12sp"
                 android:textColor="@color/record_item_time"
-                app:layout_constraintTop_toBottomOf="@id/dias_item"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dias_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/record_top_new"
             android:layout_width="166dp"
             android:layout_height="46dp"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:text="@string/record_new"
             android:layout_marginStart="22dp"
             android:background="@drawable/shape_bg_23"
-            app:layout_constraintTop_toBottomOf="@id/cl_sys"
+            android:text="@string/record_new"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/record_top_more"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/record_top_more"/>
+            app:layout_constraintTop_toBottomOf="@id/cl_sys" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/record_top_more"
             android:layout_width="107dp"
             android:layout_height="46dp"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:text="@string/record_more"
             android:layout_marginStart="22dp"
-            app:layout_constraintStart_toEndOf="@id/record_top_new"
+            android:layout_marginEnd="22dp"
             android:background="@drawable/shape_bg_record_top_btn_23"
-            app:layout_constraintTop_toBottomOf="@id/cl_sys"
+            android:text="@string/record_more"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="22dp"/>
+            app:layout_constraintStart_toEndOf="@id/record_top_new"
+            app:layout_constraintTop_toBottomOf="@id/cl_sys" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

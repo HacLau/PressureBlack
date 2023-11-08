@@ -6,18 +6,9 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/item_image"
-        android:layout_width="96dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/ic_question_1"
-        app:layout_constraintBottom_toBottomOf="@id/item_bg"
-        app:layout_constraintEnd_toEndOf="@id/item_bg" />
-
-    <ImageView
         android:id="@+id/item_bg"
         android:layout_width="328dp"
         android:layout_height="100dp"
-        android:background="@drawable/shape_bg_info_item_12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +20,6 @@
         android:layout_height="17dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
-        android:src="@mipmap/ic_question_1"
         app:layout_constraintStart_toStartOf="@id/item_bg"
         app:layout_constraintTop_toTopOf="@id/item_bg" />
 
@@ -39,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:ellipsize="end"
+        android:lines="1"
         android:lineHeight="20sp"
-        android:maxLength="24"
         android:textColor="@color/white"
         android:textFontWeight="500"
         android:textSize="14sp"

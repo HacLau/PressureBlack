@@ -1,8 +1,19 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("stringfog")
+//    id("com.google.gms.google-services")
 }
-
+apply(plugin = "stringfog")
+configure<com.github.megatronking.stringfog.plugin.StringFogExtension> {
+    implementation = "com.github.megatronking.stringfog.xor.StringFogImpl"
+    enable = true
+    fogPackages = arrayOf("com.testbird.pressureblack")
+    kg = com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator()
+    mode = com.github.megatronking.stringfog.plugin.StringFogMode.bytes
+}
 android {
     namespace = "com.testbird.pressureblack"
     compileSdk = 33
@@ -19,11 +30,16 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            buildConfigField("String","privacy","\"https://sites.google.com/view/bpcheck-companion-pp/home\"")
+            buildConfigField("String","policy","\"https://sites.google.com/view/bpcheckcompanion-tos/home\"")
         }
         debug {
-
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            buildConfigField("String","privacy","\"https://github.com/dashboard\"")
+            buildConfigField("String","policy","\"https://www.google.com/\"")
         }
     }
     compileOptions {
@@ -50,4 +66,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // room
+    implementation("androidx.room:room-runtime:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
+    // string fog
+    implementation("com.github.megatronking.stringfog:xor:5.0.0")
 }

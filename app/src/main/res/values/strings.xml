@@ -1,18 +1,26 @@
 <resources>
     <string name="app_name">PressureBlack</string>
     <string name="title_home">8.18</string>
-    <string name="title_record">历史记录</string>
-    <string name="title_info">资讯</string>
-    <string name="title_mine">设置</string>
+    <string name="title_record">Record</string>
+    <string name="title_info">Information</string>
+    <string name="title_mine">Settings</string>
+    <string name="title_next">Next</string>
 
-    <string name="title_home_bottom">每日任务</string>
-    <string name="title_record_bottom">历史记录</string>
-    <string name="title_info_bottom">资讯</string>
-    <string name="title_mine_bottom">设置</string>
+    <string name="title_home_bottom">Home Page</string>
+    <string name="title_record_bottom">Record</string>
+    <string name="title_info_bottom">Information</string>
+    <string name="title_mine_bottom">Settings</string>
 
+    <string name="text_guide_title_1">Protecting the heart starts with healthy blood pressure</string>
+    <string name="text_guide_title_2">Master blood pressure trends and predict a healthy future</string>
+    <string name="text_guide_title_3">Record blood pressure and grasp a healthy pulse</string>
 
-    <string name="home_top_title">Blood pressure record</string>
+    <string name="text_guide_content_1">Understanding the importance of blood pressure and taking the first step towards maintaining cardiovascular health</string>
+
+    <string name="home_top_title">Blood pressure records</string>
     <string name="home_top_content">Keep recording your blood pressure to understand your health status</string>
+
+    <string name="record_toast">Please maintain systolic blood pressure above diastolic blood pressure</string>
 
     <string name="home_top_to_record">To Record</string>
     <string name="home_question">Question &amp; Answer</string>
@@ -22,10 +30,16 @@
     <string name="record_month">This month</string>
     <string name="record_7day">7 Days</string>
     <string name="record_last_month">Last month</string>
+    <string name="record_all">All</string>
+
     <string name="record_unit">mmHg</string>
     <string name="record_new">+ New Record</string>
     <string name="record_more">More</string>
     <string name="record_record_now">Record now</string>
+
+
+    <string name="record_add">New Record</string>
+    <string name="record_edit">Edit Record</string>
 
 
     <string name="title_set_time">Set time</string>
@@ -45,10 +59,10 @@
 
     <string name="title_h0">Hypotension</string>
     <string name="title_h1">Normal</string>
-    <string name="title_h2">High</string>
-    <string name="title_h3">Stage 1</string>
-    <string name="title_h4">Stage 2</string>
-    <string name="title_h5">Hypertension</string>
+    <string name="title_h2">Elevated</string>
+    <string name="title_h3">Hypertension Stage 1</string>
+    <string name="title_h4">Hypertension Stage 2</string>
+    <string name="title_h5">Hypertension crisis</string>
 
     <string name="content_h0">(sys &lt;90 or dia &lt;60)</string>
     <string name="content_h1">(sys 90–119 and dia 60–79)</string>
@@ -57,21 +71,20 @@
     <string name="content_h4">(sys 140–180 or dia 90–120)</string>
     <string name="content_h5">(sys 180+ or dia 120+)</string>
 
-    <string name="des_h0">Stay adequately hydrated and exercise regularly.</string>
+    <string name="des_h0">Maintain sufficient moisture and exercise regularly.</string>
     <string name="des_h1">Continue to maintain a healthy lifestyle. </string>
     <string name="des_h2">Pay attention to your diet and reduce salt intake.</string>
-    <string name="des_h3">Improve your lifestyle, exercise regularly, and manage your diet.</string>
-    <string name="des_h4">Consult a doctor early on, as medication may be necessary.</string>
-    <string name="des_h5">Seek medical advice promptly and develop an appropriate treatment plan.</string>
+    <string name="des_h3">Improve your lifestyle, exercise regularly, and control your diet.</string>
+    <string name="des_h4">Due to the possibility of requiring medication, please consult a doctor as soon as possible.</string>
+    <string name="des_h5">Timely seek medical attention and develop appropriate treatment plans.</string>
 
-
-    <string name="mine_alarm">Set Alarm</string>
+    <string name="mine_alarm">Set alarm clock</string>
     <string name="mine_language">Set Language</string>
     <string name="mine_feed">Feedback</string>
-    <string name="mine_pp">Privacy Policy</string>
-    <string name="mine_shared">Share app</string>
+    <string name="mine_privacy">Privacy Policy</string>
+    <string name="mine_policy">User Agreement</string>
+    <string name="mine_shared">Share Application</string>
     <string name="mine_upgrade">Upgrade</string>
-
 
 
 </resources>

@@ -5,18 +5,10 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.testbird.pressureblack.base.BaseActivity
 import com.testbird.pressureblack.databinding.ActivityMainBinding
-import com.testbird.pressureblack.ui.fragment.HomeFragment
-import com.testbird.pressureblack.ui.fragment.InfoFragment
-import com.testbird.pressureblack.ui.fragment.MineFragment
 import com.testbird.pressureblack.ui.fragment.RecordFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private val listFragment = mutableListOf<Fragment>().apply {
-        add(HomeFragment())
-        add(RecordFragment())
-        add(InfoFragment())
-        add(MineFragment())
-    }
+
 
     override fun initBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
@@ -24,7 +16,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
+    fun setCurrentItem(currentItem:Int){
+        binding.mainVp.currentItem = currentItem
+        if (viewModel.listFragment[currentItem] is RecordFragment){
+            (viewModel.listFragment[currentItem] as RecordFragment).getRecordData()
+        }
+    }
+
     override fun initData() {
+        binding.title.leftText.text = viewModel.titleList[0]
         binding.bottomNav.rgMain.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 binding.bottomNav.rbHome.id -> binding.mainVp.currentItem = 0
@@ -45,6 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     2 -> binding.bottomNav.rbInfo.isChecked = true
                     3 -> binding.bottomNav.rbMine.isChecked = true
                 }
+                binding.title.leftText.text = viewModel.titleList[position]
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -54,10 +55,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         })
         binding.mainVp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getCount(): Int =
-                listFragment.size
+                viewModel.listFragment.size
 
 
-            override fun getItem(position: Int): Fragment = listFragment[position]
+            override fun getItem(position: Int): Fragment = viewModel.listFragment[position]
 
         }
 

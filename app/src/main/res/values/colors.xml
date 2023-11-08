@@ -16,6 +16,8 @@
 
     <color name="start_color">#0066FD</color>
     <color name="end_color">#0CC68D</color>
+    <color name="set_time_cancel">#39406C</color>
+    <color name="set_time_text">#646EAF</color>
 
     <color name="info_start_color">#323860</color>
     <color name="info_end_color">#00323860</color>
@@ -23,6 +25,7 @@
     <color name="record_item_color">#202546</color>
     <color name="record_item_time">#7C83B2</color>
     <color name="record_item_sd">#2E345D</color>
+    <color name="record_more_btn">#333857</color>
 
     <color name="record_chart_dash">#3D4576</color>
 
@@ -33,6 +36,16 @@
     <color name="trans">#00FFFFFF</color>
 
     <color name="mine_item_bg">#141D33</color>
+    <color name="bg_setting_time">#2A3057</color>
+    <color name="text_setting_time">#646EAF</color>
+    <color name="text_setting_time_select">#FFFFFFFF</color>
+    <color name="text_setting_time_normal">#88FFFFFF</color>
+    <color name="text_setting_time_line">#11FFFFFF</color>
+    <color name="filter_center">#33FFFFFF</color>
+
+
+    <color name="guide_select">#0171F0</color>
+    <color name="guide_normal">#4F637F</color>
 
 
 
