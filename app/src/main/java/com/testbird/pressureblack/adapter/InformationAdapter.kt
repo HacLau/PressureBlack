@@ -20,7 +20,7 @@ class InformationAdapter(
     private val onItemClick: (InformationEntity) -> Unit = {}
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return InformationViewHolder(LayoutInfoItemBinding.inflate(LayoutInflater.from(context)))
+        return InformationViewHolder(LayoutInfoItemBinding.inflate(LayoutInflater.from(context),parent,false))
     }
 
     override fun getItemCount(): Int = list.size

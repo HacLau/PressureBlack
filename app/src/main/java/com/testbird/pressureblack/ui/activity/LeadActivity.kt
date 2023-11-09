@@ -22,7 +22,7 @@ class LeadActivity : BaseActivity<ActivityLeadBinding>() {
     override fun initBinding(): ActivityLeadBinding = ActivityLeadBinding.inflate(layoutInflater)
 
     override fun initView() {
-
+        setCustomDensity()
     }
 
     private fun initProgressView() {

@@ -22,7 +22,7 @@ class GuideAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val binding = LayoutStepItemBinding.inflate(LayoutInflater.from(context))
-        binding.guideImage.setImageResource(listGuide[position].image)
+        binding.guideImage.setBackgroundResource(listGuide[position].image)
         binding.guideTitle.text = context.getString(listGuide[position].title)
         binding.guideContent.text = context.getString(listGuide[position].content)
         container.addView(binding.root)

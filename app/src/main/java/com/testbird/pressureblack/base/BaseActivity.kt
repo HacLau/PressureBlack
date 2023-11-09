@@ -32,12 +32,21 @@ abstract class BaseActivity<VB:ViewBinding>: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = initBinding()
-        setContentView(binding.root)
         viewModel = initViewModel()
         initView()
+        setContentView(binding.root)
         initData()
         isResume = false
 
+    }
+
+    fun setCustomDensity() {
+        val metrics = resources.displayMetrics
+        (metrics.heightPixels / 760f).let {
+            metrics.density = it
+            metrics.scaledDensity = it
+            metrics.densityDpi = (160 * it).toInt()
+        }
     }
 
     override fun onStart() {
@@ -78,7 +87,10 @@ abstract class BaseActivity<VB:ViewBinding>: AppCompatActivity() {
         finish()
     }
 
-    fun starMoreRecordActivity() = startActivity(Intent(this, MoreActivity::class.java))
+    fun starMoreRecordActivity(onResult: () -> Unit = {}) {
+        this.onResult = onResult
+        startActivityForResult.launch(Intent(this, MoreActivity::class.java))
+    }
     fun startWebViewActivity(url: String, title: String) =
         startActivity(Intent(this, WebActivity::class.java).apply {
             putExtra(IntentKt.url,url)

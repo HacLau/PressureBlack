@@ -1,5 +1,6 @@
 package com.testbird.pressureblack.ui.activity
 
+import android.app.Activity
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.testbird.pressureblack.R
@@ -28,6 +29,7 @@ class MoreActivity : BaseActivity<ActivityRecordMoreBinding>() {
         binding.moreTitle.titleText.text = getString(R.string.record_edit)
         binding.noBtn.setOnClickListener {
             startNewRecordActivity(IntentKt.new, onResult = {
+                setResult(Activity.RESULT_OK)
                 getRecordData()
             })
         }
@@ -49,6 +51,7 @@ class MoreActivity : BaseActivity<ActivityRecordMoreBinding>() {
             layoutManager = LinearLayoutManager(this@MoreActivity, LinearLayoutManager.VERTICAL, false)
             adapter = RecordAdapter(this@MoreActivity, mutableListOf()) {
                 startNewRecordActivity(IntentKt.edit, it) {
+                    setResult(Activity.RESULT_OK)
                     getRecordData()
                 }
             }

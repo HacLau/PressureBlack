@@ -116,7 +116,9 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>() {
                 }
             }
             recordTopMore.setOnClickListener {
-                (requireActivity() as BaseActivity<*>).starMoreRecordActivity()
+                (requireActivity() as BaseActivity<*>).starMoreRecordActivity(){
+                    getRecordData()
+                }
             }
         }
     }

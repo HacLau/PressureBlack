@@ -25,6 +25,7 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
     override fun initBinding(): ActivityRecordNewBinding = ActivityRecordNewBinding.inflate(layoutInflater)
 
     override fun initView() {
+        setCustomDensity()
         binding.newTitle.leftImage.let {
             it.visibility = View.VISIBLE
             it.setOnClickListener {
@@ -35,27 +36,25 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
 
         binding.recordNewConfirm.setOnClickListener {
             if (recordEntity.systolic > recordEntity.diastolic) {
-
-                if (currentType == IntentKt.edit){
-                    saveData()
-                }else{
-                    CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
-                        val list = RecordDatabaseManager.getManager(this@NewActivity).getHelper().queryByMinute(recordEntity.time/1000/60)
-                        if (list.isNotEmpty()){
-                            currentType = IntentKt.edit
-                            CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
-                                ConfirmDialog(this@NewActivity, clickConfirm = {
-                                    CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
-                                        recordEntity.id = list[0].id
-                                        saveData()
-                                    }
-                                }).show()
-                            }
-                        }else{
+                CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
+                    val list = RecordDatabaseManager.getManager(this@NewActivity).getHelper().queryByMinute(recordEntity.time/1000/60)
+                    if (list.isNotEmpty()){
+                        currentType = IntentKt.edit
+                        CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
+                            ConfirmDialog(this@NewActivity, clickConfirm = {
+                                recordEntity.id = list[0].id
+                                CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
+                                    saveData()
+                                }
+                            }).show()
+                        }
+                    }else{
+                        CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
                             saveData()
                         }
                     }
                 }
+
 
             } else {
                 getString(R.string.record_toast).toast(this)

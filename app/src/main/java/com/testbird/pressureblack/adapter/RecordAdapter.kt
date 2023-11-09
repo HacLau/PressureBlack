@@ -25,8 +25,8 @@ class RecordAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            0 -> RecordChartViewHolder(LayoutRecordChartBinding.inflate(LayoutInflater.from(context)))
-            else -> RecordItemViewHolder(LayoutRecordItemBinding.inflate(LayoutInflater.from(context)))
+            0 -> RecordChartViewHolder(LayoutRecordChartBinding.inflate(LayoutInflater.from(context),parent,false))
+            else -> RecordItemViewHolder(LayoutRecordItemBinding.inflate(LayoutInflater.from(context),parent,false))
         }
     }
 
