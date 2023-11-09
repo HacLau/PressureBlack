@@ -17,7 +17,7 @@ fun List<RecordEntity>.filterRecordList(currentFilter: String): List<RecordEntit
             }
 
             2 -> {
-                it.time > (-7).getDaysMills()
+                it.time > (-6).getDaysMills()
             }
 
             3 -> {
@@ -42,12 +42,13 @@ fun List<RecordEntity>.getRecordList(data: (Int, Int) -> Unit): MutableList<Reco
         var dia = 0
         val list = this.subList(0, if (this.isEmpty()) 0 else if (this.size > 5) 5 else this.size)
         list.forEach { entity ->
+            it.add(Record(1, entity = entity))
+        }
+        this.forEach {entity->
             sys += entity.systolic
             dia += entity.diastolic
-            it.add(Record(1, entity = entity))
-            it.toString().log()
         }
-        data.invoke(if (list.isNotEmpty()) sys / list.size else sys, if (list.isNotEmpty()) dia / list.size else dia)
+        data.invoke(if (this.isNotEmpty()) sys / this.size else sys, if (this.isNotEmpty()) dia / this.size else dia)
         it
     }
 }

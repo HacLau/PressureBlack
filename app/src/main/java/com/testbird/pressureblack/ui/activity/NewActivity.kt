@@ -35,20 +35,28 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
 
         binding.recordNewConfirm.setOnClickListener {
             if (recordEntity.systolic > recordEntity.diastolic) {
-                CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
-                    if (RecordDatabaseManager.getManager(this@NewActivity).getHelper().queryByMinute(recordEntity.time/1000/60).isNotEmpty()){
-                        CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
-                            ConfirmDialog(this@NewActivity, clickConfirm = {
-                                currentType = IntentKt.edit
-                                CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
-                                    saveData()
-                                }
-                            }).show()
+
+                if (currentType == IntentKt.edit){
+                    saveData()
+                }else{
+                    CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
+                        val list = RecordDatabaseManager.getManager(this@NewActivity).getHelper().queryByMinute(recordEntity.time/1000/60)
+                        if (list.isNotEmpty()){
+                            currentType = IntentKt.edit
+                            CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
+                                ConfirmDialog(this@NewActivity, clickConfirm = {
+                                    CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
+                                        recordEntity.id = list[0].id
+                                        saveData()
+                                    }
+                                }).show()
+                            }
+                        }else{
+                            saveData()
                         }
-                    }else{
-                        saveData()
                     }
                 }
+
             } else {
                 getString(R.string.record_toast).toast(this)
             }

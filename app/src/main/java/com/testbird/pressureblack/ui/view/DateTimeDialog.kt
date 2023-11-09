@@ -129,7 +129,7 @@ val hourList: MutableList<String> = mutableListOf<String>().apply {
     }
 }
 val minuteList: MutableList<String> = mutableListOf<String>().apply {
-    (0..56).forEach {
+    (0..59).forEach {
         add(it.two())
     }
 }
