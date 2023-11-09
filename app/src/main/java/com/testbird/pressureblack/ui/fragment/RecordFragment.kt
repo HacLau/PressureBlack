@@ -72,9 +72,9 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>() {
     }
 
     fun getRecordData() {
-        viewModel.getRecordData(requireContext()){
+        viewModel.getRecordData(requireContext()) {
             CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
-                (binding.rvRecord.adapter as RecordAdapter).setList(it.getRecordList{ sys, dia->
+                (binding.rvRecord.adapter as RecordAdapter).setList(it.getRecordList { sys, dia ->
                     binding.recordTop.sysNumber.text = "$sys"
                     binding.recordTop.diasNumber.text = "$dia"
                 })
@@ -106,8 +106,6 @@ class RecordFragment : BaseFragment<FragmentRecordBinding>() {
         }
 
     }
-
-
 
 
     override fun initView() {

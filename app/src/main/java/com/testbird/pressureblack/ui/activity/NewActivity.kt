@@ -12,6 +12,7 @@ import com.testbird.pressureblack.contacts.getFormatTimeRecordItem
 import com.testbird.pressureblack.contacts.toast
 import com.testbird.pressureblack.database.RecordDatabaseManager
 import com.testbird.pressureblack.databinding.ActivityRecordNewBinding
+import com.testbird.pressureblack.ui.view.ConfirmDialog
 import com.testbird.pressureblack.ui.view.DateTimeDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,22 +32,29 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
                 finish()
             }
         }
+
         binding.recordNewConfirm.setOnClickListener {
             if (recordEntity.systolic > recordEntity.diastolic) {
                 CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
-                    when (currentType) {
-                        IntentKt.new -> RecordDatabaseManager.getManager(this@NewActivity).getHelper().insert(recordEntity)
-                        IntentKt.edit -> RecordDatabaseManager.getManager(this@NewActivity).getHelper().update(recordEntity)
+                    if (RecordDatabaseManager.getManager(this@NewActivity).getHelper().queryByMinute(recordEntity.time/1000/60).isNotEmpty()){
+                        CoroutineScope(Dispatchers.Main + SupervisorJob()).launch {
+                            ConfirmDialog(this@NewActivity, clickConfirm = {
+                                currentType = IntentKt.edit
+                                CoroutineScope(Dispatchers.IO + SupervisorJob()).launch {
+                                    saveData()
+                                }
+                            }).show()
+                        }
+                    }else{
+                        saveData()
                     }
-                    setResult(Activity.RESULT_OK)
-                    finish()
                 }
             } else {
                 getString(R.string.record_toast).toast(this)
             }
         }
         binding.sysNumberPicker.let {
-            it.maxValue = 320
+            it.maxValue = 300
             it.minValue = 20
             it.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
             it.wrapSelectorWheel = false
@@ -56,7 +64,7 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
             }
         }
         binding.diasNumberPicker.let {
-            it.maxValue = 320
+            it.maxValue = 300
             it.minValue = 20
             it.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
             it.wrapSelectorWheel = false
@@ -73,6 +81,15 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
         }
     }
 
+    private fun saveData() {
+        when (currentType) {
+            IntentKt.new -> RecordDatabaseManager.getManager(this@NewActivity).getHelper().insert(recordEntity)
+            IntentKt.edit -> RecordDatabaseManager.getManager(this@NewActivity).getHelper().update(recordEntity)
+        }
+        setResult(Activity.RESULT_OK)
+        finish()
+    }
+
 
     override fun initData() {
         currentType = intent.getStringExtra(IntentKt.type) ?: IntentKt.new
@@ -81,7 +98,7 @@ class NewActivity : BaseActivity<ActivityRecordNewBinding>() {
             IntentKt.edit -> binding.newTitle.titleText.text = getString(R.string.record_edit)
         }
         recordEntity = intent.getParcelableExtra<RecordEntity>(IntentKt.record) ?: RecordEntity()
-        setPageData()
+        setRecordLevel()
 
     }
 

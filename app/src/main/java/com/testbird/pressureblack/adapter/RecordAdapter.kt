@@ -83,8 +83,8 @@ class RecordAdapter(
 
 
     private fun getMaxAndMin(chartList: List<RecordEntity>, onLoaded: (Int, Int, Int, Int, Int) -> Unit) {
-        var max: Int = chartList[0].systolic
-        var min: Int = chartList[0].diastolic
+        var max: Int = if (chartList.isEmpty()) 320 else chartList[0].systolic
+        var min: Int = if (chartList.isEmpty()) 20 else chartList[0].diastolic
         chartList.forEach {
             if (max - it.systolic < 0) {
                 max = it.systolic

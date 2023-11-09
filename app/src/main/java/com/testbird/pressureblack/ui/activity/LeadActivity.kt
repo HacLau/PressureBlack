@@ -7,6 +7,7 @@ import android.text.style.ClickableSpan
 import android.view.View
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.testbird.pressureblack.BuildConfig
+import com.testbird.pressureblack.R
 import com.testbird.pressureblack.adapter.GuideAdapter
 import com.testbird.pressureblack.base.BaseActivity
 import com.testbird.pressureblack.databinding.ActivityLeadBinding
@@ -64,9 +65,20 @@ class LeadActivity : BaseActivity<ActivityLeadBinding>() {
 
                 override fun onPageSelected(position: Int) {
                     when (position) {
-                        0 -> binding.guideRg.check(binding.rb1.id)
-                        1 -> binding.guideRg.check(binding.rb2.id)
-                        2 -> binding.guideRg.check(binding.rb3.id)
+                        0 -> {
+                            binding.guideRg.check(binding.rb1.id)
+                            binding.startBtn.text = getString(R.string.title_next)
+                        }
+
+                        1 -> {
+                            binding.guideRg.check(binding.rb2.id)
+                            binding.startBtn.text = getString(R.string.title_next)
+                        }
+
+                        2 -> {
+                            binding.guideRg.check(binding.rb3.id)
+                            binding.startBtn.text = getString(R.string.title_start_record)
+                        }
                     }
                 }
 
@@ -84,7 +96,11 @@ class LeadActivity : BaseActivity<ActivityLeadBinding>() {
                     SharedHelper.launchedStep = true
                 }
             }
+        }
 
+        binding.stepSkip.setOnClickListener {
+            startMainActivity()
+            SharedHelper.launchedStep = true
         }
 
     }

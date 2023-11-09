@@ -34,6 +34,7 @@
                 android:id="@+id/line1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/shape_dash_line"
                 app:layout_constraintBottom_toBottomOf="@id/num1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +57,7 @@
                 android:id="@+id/line2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/shape_dash_line"
                 app:layout_constraintBottom_toBottomOf="@id/num2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +81,7 @@
                 android:id="@+id/line3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/shape_dash_line"
                 app:layout_constraintBottom_toBottomOf="@id/num3"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,6 +105,7 @@
                 android:id="@+id/line4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/shape_dash_line"
                 app:layout_constraintBottom_toBottomOf="@id/num4"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +128,7 @@
                 android:id="@+id/line5"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/shape_dash_line"
                 app:layout_constraintBottom_toBottomOf="@id/num5"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +151,8 @@
             android:id="@+id/record_chart_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="34dp" />
+            android:layout_marginStart="34dp"
+            android:layout_marginEnd="20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

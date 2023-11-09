@@ -17,6 +17,7 @@ import com.testbird.pressureblack.appContext
 import com.testbird.pressureblack.contacts.filterRecordList
 import com.testbird.pressureblack.contacts.getFormatTimeMain
 import com.testbird.pressureblack.contacts.getRecordDataByLevel
+import com.testbird.pressureblack.contacts.log
 import com.testbird.pressureblack.database.RecordDatabaseManager
 import com.testbird.pressureblack.ui.fragment.HomeFragment
 import com.testbird.pressureblack.ui.fragment.InfoFragment
@@ -74,6 +75,7 @@ class ActivityViewModel : ViewModel() {
     }
 
     fun getRecordLevel(recordEntity: RecordEntity): Int {
+        "systolic = ${recordEntity.systolic} diastolic = ${recordEntity.diastolic}".log()
         return if (recordEntity.systolic > 180 || recordEntity.diastolic > 120)
             5
         else if (recordEntity.systolic >= 140 || recordEntity.diastolic >= 90)

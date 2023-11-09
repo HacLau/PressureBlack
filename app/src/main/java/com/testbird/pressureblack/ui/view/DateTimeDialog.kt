@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import com.testbird.pressureblack.contacts.getCurrentDateArrayByMill
 import com.testbird.pressureblack.contacts.getCurrentDateMillByArray
 import com.testbird.pressureblack.contacts.getCurrentYearMonthHaveDay
+import com.testbird.pressureblack.contacts.getLastYearToDay
 import com.testbird.pressureblack.contacts.toast
 import com.testbird.pressureblack.contacts.two
 import com.testbird.pressureblack.databinding.LayoutSetTimeBinding
@@ -84,7 +85,10 @@ class DateTimeDialog(
                 if (it > System.currentTimeMillis()) {
                     "You choice time is exceed current time,please choice again".toast(context)
                     return@setOnClickListener
-                } else {
+                } else if (it < System.currentTimeMillis().getLastYearToDay() ) {
+                    "Please select any time within one year".toast(context)
+                    return@setOnClickListener
+                }else{
                     dismiss()
                     confirm.invoke(it)
                 }
@@ -125,7 +129,7 @@ val hourList: MutableList<String> = mutableListOf<String>().apply {
     }
 }
 val minuteList: MutableList<String> = mutableListOf<String>().apply {
-    (0..60).forEach {
+    (0..56).forEach {
         add(it.two())
     }
 }

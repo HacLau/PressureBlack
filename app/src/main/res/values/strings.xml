@@ -5,6 +5,7 @@
     <string name="title_info">Information</string>
     <string name="title_mine">Settings</string>
     <string name="title_next">Next</string>
+    <string name="title_start_record">Start Record</string>
 
     <string name="title_home_bottom">Home Page</string>
     <string name="title_record_bottom">Record</string>
@@ -50,6 +51,7 @@
     <string name="title_minute">Minute</string>
     <string name="title_cancel">Cancel</string>
     <string name="title_confirm">Confirm</string>
+    <string name="title_skip">Skip</string>
 
     <string name="title_systolic">Systolic</string>
     <string name="title_sys">SYS</string>
@@ -85,6 +87,9 @@
     <string name="mine_policy">User Agreement</string>
     <string name="mine_shared">Share Application</string>
     <string name="mine_upgrade">Upgrade</string>
+
+    <string name="tx_warning_title">Current minute\'s time had data</string>
+    <string name="tx_warning_content">Cover current data?</string>
 
 
 </resources>

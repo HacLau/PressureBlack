@@ -113,6 +113,14 @@ fun Int.getMonthStart():Long{
     }
 }
 
+fun Long.getLastYearToDay():Long{
+    return Calendar.getInstance().let {
+        it.timeInMillis = this
+        it.add(Calendar.YEAR,-1)
+        it.timeInMillis
+    }
+}
+
 fun Int.two():String{
     return if (this < 10)
         "0${this}"

@@ -8,7 +8,7 @@
 
     <include android:id="@+id/mine_alarm"
         layout="@layout/layout_mine_alarm"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
     <include
         android:id="@+id/mine_language"
         layout="@layout/layout_mine_item"

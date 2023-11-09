@@ -16,4 +16,7 @@ interface DatabaseHelper{
 
     @Query("select * from recordentity order by time desc")
     fun query():List<RecordEntity>
+
+    @Query("select * from recordentity where time/1000/60 =:time")
+    fun queryByMinute(time:Long):List<RecordEntity>
 }
